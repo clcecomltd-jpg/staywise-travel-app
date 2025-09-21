@@ -1,19 +1,4 @@
-// No real external service integrations found
-
-const externalServices = {
-  // ❌ NOT IMPLEMENTED:
-  maps: "No Google Maps or Mapbox integration",
-  payments: "No payment gateway services", 
-  notifications: "No push notification services",
-  email: "No email service integration",
-  sms: "No SMS/messaging services",
-  analytics: "No analytics tracking services"
-};
-endarSync: "No external calendar APIs",
-  propertySync: "No Airbnb/Booking.com API integration"
-};
-) - user preferences management"
-};
+import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { HeroWelcomeCard } from '../ui/hero-welcome-card';
