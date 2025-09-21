@@ -1,0 +1,281 @@
+[
+  {
+    "file": "src/components/HomePage.tsx",
+    "line": 126,
+    "before": "className=\"font-bold text-white\"",
+    "after": "className=\"text-white\"",
+    "reason": "Remove typography override, use semantic HTML with design system defaults",
+    "category": "typography",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/HomePage.tsx",
+    "line": 158,
+    "before": "className=\"text-3xl lg:text-5xl font-bold text-white mb-3\"",
+    "after": "className=\"text-white mb-3\"",
+    "reason": "Remove typography overrides, use <h1> semantic styling",
+    "category": "typography",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/HomePage.tsx",
+    "line": 33,
+    "before": "color: 'text-blue-400'",
+    "after": "style={{ color: 'var(--ios-blue)' }}",
+    "reason": "Use design token for iOS Blue instead of Tailwind class",
+    "category": "color",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/HomePage.tsx",
+    "line": 117,
+    "before": "className=\"min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900\"",
+    "after": "className=\"min-h-screen\" style={{ background: 'linear-gradient(135deg, var(--bg-dark-gradient-start), var(--bg-dark-gradient-end))' }}",
+    "reason": "Use design tokens for background gradients",
+    "category": "color",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/OnboardingFlow.tsx",
+    "line": 92,
+    "before": "style={{ fontSize: '32px', lineHeight: '1.2' }}",
+    "after": "",
+    "reason": "Remove inline typography styles, use semantic <h1> with design system defaults",
+    "category": "typography",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/OnboardingFlow.tsx",
+    "line": 28,
+    "before": "background: 'linear-gradient(to right, #007AFF, #5856D6)'",
+    "after": "background: 'linear-gradient(to right, var(--ios-blue), var(--ios-purple))'",
+    "reason": "Replace hard-coded hex colors with design tokens",
+    "category": "color",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/OnboardingFlow.tsx",
+    "line": 154,
+    "before": "style={{ background: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(16px)', borderRadius: '16px' }}",
+    "after": "className=\"glass-card\"",
+    "reason": "Replace manual glass effect with design system class",
+    "category": "glassmorphism",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/OnboardingFlow.tsx",
+    "line": 204,
+    "before": "style={{ height: '80px', padding: '24px' }}",
+    "after": "className=\"h-20\" style={{ padding: 'var(--space-6)' }}",
+    "reason": "Use design tokens for spacing instead of arbitrary pixel values",
+    "category": "spacing",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/StreamlinedOnboardingFlow.tsx",
+    "line": 486,
+    "before": "style={{ fontSize: '36px', lineHeight: '1.1' }}",
+    "after": "",
+    "reason": "Remove inline typography styles, use semantic HTML with design system defaults",
+    "category": "typography",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/StreamlinedOnboardingFlow.tsx",
+    "line": 595,
+    "before": "className=\"w-6 h-6 text-blue-400\"",
+    "after": "className=\"w-6 h-6\" style={{ color: 'var(--ios-blue)' }}",
+    "reason": "Use iOS Blue design token for all interactive icons",
+    "category": "color",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/StreamlinedOnboardingFlow.tsx",
+    "line": 302,
+    "before": "background: 'linear-gradient(180deg, rgba(10, 15, 30, 0.6) 0%, rgba(0, 0, 0, 0.75) 100%)'",
+    "after": "background: 'linear-gradient(180deg, var(--overlay-gradient-start), var(--overlay-gradient-end))'",
+    "reason": "Use design tokens for overlay gradients",
+    "category": "color",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/StreamlinedOnboardingFlow.tsx",
+    "line": 581,
+    "before": "className=\"w-full glass-card rounded-2xl p-5\"",
+    "after": "className=\"w-full glass-card rounded-2xl\" style={{ padding: 'var(--space-5)' }}",
+    "reason": "Use design tokens for padding instead of Tailwind classes",
+    "category": "spacing",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/HostApp.tsx",
+    "line": 268,
+    "before": "className=\"text-lg flex items-center\"",
+    "after": "className=\"flex items-center\"",
+    "reason": "Remove typography override, use semantic HTML styling",
+    "category": "typography",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/HostApp.tsx",
+    "line": 257,
+    "before": "className=\"w-4 h-4 text-blue-600\"",
+    "after": "className=\"w-4 h-4\" style={{ color: 'var(--ios-blue)' }}",
+    "reason": "Use design token for icon color",
+    "category": "color",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/ui/button.tsx",
+    "line": 8,
+    "before": "text-sm font-medium",
+    "after": "",
+    "reason": "Remove typography overrides from base button component",
+    "category": "typography",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/ui/button.tsx",
+    "line": 24,
+    "before": "h-9 px-4 py-2",
+    "after": "px-4 py-2\" style={{ height: 'var(--button-height-default)' }}",
+    "reason": "Use design tokens for component sizing",
+    "category": "spacing",
+    "impact": "low"
+  },
+  {
+    "file": "src/styles/globals.css",
+    "line": 534,
+    "before": ".light .text-blue-400, .light .text-green-400, .light .text-purple-400, .light .text-orange-400, .light .text-yellow-400 { color: #007AFF !important; }",
+    "after": ".light .text-blue-400, .light .text-green-400, .light .text-purple-400, .light .text-orange-400, .light .text-yellow-400 { color: var(--ios-blue) !important; }",
+    "reason": "Use design token instead of hard-coded hex value",
+    "category": "color",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/RecommendationCard.tsx",
+    "line": 15,
+    "before": "className=\"text-lg font-semibold\"",
+    "after": "className=\"\"",
+    "reason": "Remove typography overrides, use semantic HTML",
+    "category": "typography",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/FilterModal.tsx",
+    "line": 42,
+    "before": "className=\"text-xl font-bold mb-4\"",
+    "after": "className=\"mb-4\"",
+    "reason": "Remove typography overrides, use semantic <h2>",
+    "category": "typography",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/BottomNavigation.tsx",
+    "line": 23,
+    "before": "className=\"text-xs font-medium\"",
+    "after": "className=\"\"",
+    "reason": "Remove typography overrides from navigation labels",
+    "category": "typography",
+    "impact": "low"
+  },
+  {
+    "file": "src/components/SettingsDropdown.tsx",
+    "line": 18,
+    "before": "style={{ color: '#3B82F6' }}",
+    "after": "style={{ color: 'var(--ios-blue)' }}",
+    "reason": "Use design token for icon color",
+    "category": "color",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/PropertyImportDialog.tsx",
+    "line": 67,
+    "before": "className=\"p-[18px]\"",
+    "after": "className=\"p-4\"",
+    "reason": "Use 8px grid spacing (16px) instead of arbitrary 18px",
+    "category": "spacing",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/CardDetailsModal.tsx",
+    "line": 89,
+    "before": "style={{ backdropFilter: 'blur(14px)', background: 'rgba(255,255,255,0.08)' }}",
+    "after": "className=\"glass-card\"",
+    "reason": "Replace manual glass effect with design system class",
+    "category": "glassmorphism",
+    "impact": "high"
+  },
+  {
+    "file": "src/src/components/TopBar/TopBar.tsx",
+    "line": 34,
+    "before": "className=\"text-2xl font-bold\"",
+    "after": "className=\"\"",
+    "reason": "Remove typography overrides, use semantic <h1>",
+    "category": "typography",
+    "impact": "medium"
+  },
+  {
+    "file": "src/src/components/LocalTips/TipCard.tsx",
+    "line": 67,
+    "before": "className=\"font-semibold text-lg mb-2\"",
+    "after": "className=\"mb-2\"",
+    "reason": "Remove typography overrides, use semantic <h3>",
+    "category": "typography",
+    "impact": "medium"
+  },
+  {
+    "file": "src/src/components/HeroCard/HeroCard.tsx",
+    "line": 45,
+    "before": "className=\"text-3xl font-bold text-white mb-4\"",
+    "after": "className=\"text-white mb-4\"",
+    "reason": "Remove typography overrides, use semantic <h1>",
+    "category": "typography",
+    "impact": "high"
+  },
+  {
+    "file": "src/components/ui/standardized-card.tsx",
+    "line": 23,
+    "before": "className=\"font-bold text-lg\"",
+    "after": "className=\"\"",
+    "reason": "Remove typography overrides from card component",
+    "category": "typography",
+    "impact": "medium"
+  },
+  {
+    "file": "src/src/components/CheckIn/CheckInHeroCard.tsx",
+    "line": 28,
+    "before": "className=\"text-2xl font-bold mb-2\"",
+    "after": "className=\"mb-2\"",
+    "reason": "Remove typography overrides, use semantic HTML",
+    "category": "typography",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/screens/HomeScreen.tsx",
+    "line": 156,
+    "before": "style={{ color: '#FF6B35' }}",
+    "after": "style={{ color: 'var(--brand-orange-start)' }}",
+    "reason": "Use brand color design token",
+    "category": "color",
+    "impact": "high"
+  },
+  {
+    "file": "src/src/components/WiFi/WiFiPasswordCard.tsx",
+    "line": 23,
+    "before": "className=\"bg-white/5 border border-white/10\"",
+    "after": "className=\"glass-card\"",
+    "reason": "Use design system glass card class",
+    "category": "glassmorphism",
+    "impact": "medium"
+  },
+  {
+    "file": "src/components/ui/navigation-menu.tsx",
+    "line": 45,
+    "before": "className=\"text-sm font-medium\"",
+    "after": "className=\"\"",
+    "reason": "Remove typography overrides from navigation component",
+    "category": "typography",
+    "impact": "low"
+  }
+]

@@ -1,0 +1,421 @@
+{
+  "metadata": {
+    "generated": "2024-12-21",
+    "agent": "A11y & UX States Agent",
+    "standard": "WCAG 2.1 AA",
+    "app": "StayWise",
+    "totalIssues": 26,
+    "highPriority": 8,
+    "mediumPriority": 12,
+    "lowPriority": 6
+  },
+  "priorities": {
+    "high": [
+      {
+        "id": "a11y-001",
+        "title": "Missing Semantic HTML Structure",
+        "severity": "High",
+        "wcagCriteria": ["1.3.1", "2.4.6"],
+        "impact": "Screen readers cannot navigate page structure effectively",
+        "files": [
+          "src/components/screens/HomeScreen.tsx",
+          "src/components/screens/ExploreScreen.tsx", 
+          "src/components/screens/ProfileScreen.tsx",
+          "src/components/HostApp.tsx"
+        ],
+        "description": "Missing <main>, <nav>, <section>, <header> semantic elements",
+        "estimatedEffort": "2 hours",
+        "priority": 1
+      },
+      {
+        "id": "a11y-002", 
+        "title": "Image Alternative Text Missing",
+        "severity": "High",
+        "wcagCriteria": ["1.1.1"],
+        "impact": "Screen reader users miss critical visual information",
+        "files": [
+          "src/components/screens/HomeScreen.tsx",
+          "src/components/RecommendationModal.tsx",
+          "src/components/screens/ExploreScreen.tsx"
+        ],
+        "description": "Emoji flags, venue images, and decorative images lack proper alt text",
+        "estimatedEffort": "4 hours",
+        "priority": 1
+      },
+      {
+        "id": "a11y-003",
+        "title": "Focus Management in Custom Dropdowns",
+        "severity": "High", 
+        "wcagCriteria": ["2.1.2", "2.4.3"],
+        "impact": "Keyboard users lose focus context in dropdowns",
+        "files": [
+          "src/components/screens/HomeScreen.tsx"
+        ],
+        "description": "Settings, Currency, and Language dropdowns don't trap or restore focus properly",
+        "estimatedEffort": "3 hours",
+        "priority": 2
+      },
+      {
+        "id": "a11y-004",
+        "title": "Low Contrast Text Elements", 
+        "severity": "High",
+        "wcagCriteria": ["1.4.3"],
+        "impact": "Users with visual impairments cannot read content",
+        "files": [
+          "src/components/BottomNavigation.tsx",
+          "src/components/screens/HomeScreen.tsx"
+        ],
+        "description": "Inactive nav items and muted text don't meet 4.5:1 contrast ratio",
+        "estimatedEffort": "2 hours",
+        "priority": 2
+      },
+      {
+        "id": "ux-001",
+        "title": "Missing Loading States in ExploreScreen",
+        "severity": "High",
+        "wcagCriteria": ["2.2.1"],
+        "impact": "Users have no feedback during data loading",
+        "files": [
+          "src/src/pages/Explore/ExplorePage.tsx"
+        ],
+        "description": "No skeleton states for tip cards and filtered results",
+        "estimatedEffort": "3 hours", 
+        "priority": 1
+      },
+      {
+        "id": "ux-002",
+        "title": "Chat Real-time States Missing",
+        "severity": "High",
+        "wcagCriteria": ["3.3.3"],
+        "impact": "Users cannot track message status or connection state",
+        "files": [
+          "src/components/screens/ChatScreen.tsx"
+        ],
+        "description": "No loading, error, or connection status for messaging",
+        "estimatedEffort": "6 hours",
+        "priority": 1  
+      },
+      {
+        "id": "ux-003",
+        "title": "Property Data Error Handling",
+        "severity": "High",
+        "wcagCriteria": ["3.3.1", "3.3.3"],
+        "impact": "Users see blank screens when property data fails to load",
+        "files": [
+          "src/components/screens/PropertyScreen.tsx"
+        ],
+        "description": "No error states for property/location data failures",
+        "estimatedEffort": "4 hours",
+        "priority": 2
+      },
+      {
+        "id": "a11y-005",
+        "title": "Chart Data Visualization Accessibility",
+        "severity": "High", 
+        "wcagCriteria": ["1.1.1", "1.3.1"],
+        "impact": "Chart data completely inaccessible to screen readers",
+        "files": [
+          "src/components/HostApp.tsx",
+          "src/components/HostDashboard.tsx"
+        ],
+        "description": "Charts lack text alternatives and keyboard navigation",
+        "estimatedEffort": "8 hours",
+        "priority": 3
+      }
+    ],
+    "medium": [
+      {
+        "id": "a11y-006",
+        "title": "Form Input Label Association",
+        "severity": "Medium",
+        "wcagCriteria": ["1.3.1", "3.3.2"],
+        "impact": "Screen readers cannot identify input purpose",
+        "files": [
+          "src/components/FilterModal.tsx",
+          "src/components/HostApp.tsx"
+        ],
+        "description": "Some inputs rely on placeholder text instead of proper labels",
+        "estimatedEffort": "3 hours",
+        "priority": 4
+      },
+      {
+        "id": "a11y-007",
+        "title": "Loading State Announcements",
+        "severity": "Medium",
+        "wcagCriteria": ["4.1.3"],
+        "impact": "Users unaware of application state changes",
+        "files": [
+          "Multiple async operations"
+        ],
+        "description": "Loading states not announced to screen readers via aria-live",
+        "estimatedEffort": "4 hours",
+        "priority": 4
+      },
+      {
+        "id": "ux-004",
+        "title": "Empty States for Filtered Results",
+        "severity": "Medium",
+        "wcagCriteria": ["3.3.3"],
+        "impact": "Users don't understand why no results appear",
+        "files": [
+          "src/src/pages/Explore/ExplorePage.tsx",
+          "src/components/screens/HostBookingsScreen.tsx"
+        ],
+        "description": "No empty states when filters return no results",
+        "estimatedEffort": "2 hours",
+        "priority": 5
+      },
+      {
+        "id": "ux-005",
+        "title": "Network Error Recovery",
+        "severity": "Medium",
+        "wcagCriteria": ["3.3.1", "3.3.4"],
+        "impact": "Users cannot recover from network failures",
+        "files": [
+          "src/components/screens/ChatScreen.tsx",
+          "src/components/screens/CheckInScreen.tsx"
+        ],
+        "description": "No retry mechanisms or offline handling",
+        "estimatedEffort": "6 hours",
+        "priority": 5
+      },
+      {
+        "id": "a11y-008",
+        "title": "Keyboard Navigation for Image Carousels",
+        "severity": "Medium", 
+        "wcagCriteria": ["2.1.1"],
+        "impact": "Keyboard users cannot navigate image galleries",
+        "files": [
+          "src/components/RecommendationModal.tsx"
+        ],
+        "description": "Carousel images lack keyboard controls",
+        "estimatedEffort": "3 hours",
+        "priority": 6
+      },
+      {
+        "id": "ux-006",
+        "title": "Form Submission Loading States",
+        "severity": "Medium",
+        "wcagCriteria": ["2.2.1"],
+        "impact": "Users don't know if form submissions are processing",
+        "files": [
+          "src/components/screens/ProfileScreen.tsx"
+        ],
+        "description": "No loading indicators for profile updates",
+        "estimatedEffort": "2 hours",
+        "priority": 6
+      },
+      {
+        "id": "a11y-009",
+        "title": "Table Data Accessibility",
+        "severity": "Medium",
+        "wcagCriteria": ["1.3.1"],
+        "impact": "Data tables lack proper headers and relationships",
+        "files": [
+          "Host dashboard tables"
+        ],
+        "description": "Tables need proper th elements and scope attributes",
+        "estimatedEffort": "3 hours",
+        "priority": 7
+      },
+      {
+        "id": "ux-007",
+        "title": "GPS/Location Error Handling",
+        "severity": "Medium",
+        "wcagCriteria": ["3.3.1"],
+        "impact": "Users stuck when location services fail",
+        "files": [
+          "src/components/screens/CheckInScreen.tsx"
+        ],
+        "description": "No fallbacks for GPS failures or location permission denied",
+        "estimatedEffort": "4 hours",
+        "priority": 7
+      },
+      {
+        "id": "a11y-010", 
+        "title": "Color-Only Information",
+        "severity": "Medium",
+        "wcagCriteria": ["1.4.1"],
+        "impact": "Color blind users miss status information",
+        "files": [
+          "Status indicators, charts"
+        ],
+        "description": "Some status information conveyed only through color",
+        "estimatedEffort": "3 hours",
+        "priority": 8
+      },
+      {
+        "id": "ux-008",
+        "title": "Optimistic Update Feedback",
+        "severity": "Medium",
+        "wcagCriteria": ["3.3.3"],
+        "impact": "Users uncertain if actions completed",
+        "files": [
+          "Like buttons, bookmarks, quick actions"
+        ],
+        "description": "Immediate feedback needed for user actions",
+        "estimatedEffort": "4 hours",
+        "priority": 8
+      },
+      {
+        "id": "a11y-011",
+        "title": "Skip Links for Navigation",
+        "severity": "Medium",
+        "wcagCriteria": ["2.4.1"],
+        "impact": "Keyboard users must tab through all navigation",
+        "files": [
+          "Main layout components"
+        ],
+        "description": "Missing skip to main content links",
+        "estimatedEffort": "2 hours",
+        "priority": 9
+      },
+      {
+        "id": "ux-009",
+        "title": "Background Sync Indicators",
+        "severity": "Medium", 
+        "wcagCriteria": ["4.1.3"],
+        "impact": "Users unaware of background data synchronization",
+        "files": [
+          "Global state management"
+        ],
+        "description": "No indication when app syncs data in background",
+        "estimatedEffort": "5 hours",
+        "priority": 9
+      }
+    ],
+    "low": [
+      {
+        "id": "a11y-012",
+        "title": "Enhanced ARIA Landmarks",
+        "severity": "Low",
+        "wcagCriteria": ["1.3.6"],
+        "impact": "Minor navigation improvements for screen readers",
+        "files": [
+          "Layout components"
+        ],
+        "description": "Add more specific landmarks like banner, contentinfo",
+        "estimatedEffort": "2 hours",
+        "priority": 10
+      },
+      {
+        "id": "a11y-013",
+        "title": "Heading Hierarchy Improvements",
+        "severity": "Low",
+        "wcagCriteria": ["1.3.1"],
+        "impact": "Better content structure understanding",
+        "files": [
+          "Content screens"
+        ],
+        "description": "Some heading levels could be more logical",
+        "estimatedEffort": "1 hour",
+        "priority": 11
+      },
+      {
+        "id": "a11y-014",
+        "title": "Language Attributes",
+        "severity": "Low",
+        "wcagCriteria": ["3.1.1"],
+        "impact": "Screen readers may mispronounce content",
+        "files": [
+          "HTML document, mixed language content"
+        ],
+        "description": "Add lang attributes for multi-language content",
+        "estimatedEffort": "1 hour",
+        "priority": 12
+      },
+      {
+        "id": "ux-010",
+        "title": "Progressive Enhancement for Animations",
+        "severity": "Low",
+        "wcagCriteria": ["2.3.3"],
+        "impact": "Users with vestibular disorders may be affected",
+        "files": [
+          "Animated components"
+        ],
+        "description": "Respect prefers-reduced-motion setting",
+        "estimatedEffort": "3 hours",
+        "priority": 12
+      },
+      {
+        "id": "a11y-015",
+        "title": "Tooltip Accessibility Enhancement",
+        "severity": "Low",
+        "wcagCriteria": ["1.4.13"],
+        "impact": "Tooltip content may not be fully accessible",
+        "files": [
+          "Tooltip components"
+        ],
+        "description": "Ensure tooltips work with keyboard and screen readers",
+        "estimatedEffort": "2 hours",
+        "priority": 13
+      },
+      {
+        "id": "ux-011",
+        "title": "Advanced Loading Patterns",
+        "severity": "Low",
+        "wcagCriteria": ["2.2.1"],
+        "impact": "Enhanced user experience for slow connections",
+        "files": [
+          "Data-heavy components"
+        ],
+        "description": "Implement progressive loading and skeleton improvements",
+        "estimatedEffort": "6 hours",
+        "priority": 13
+      }
+    ]
+  },
+  "summary": {
+    "totalEstimatedEffort": "84 hours",
+    "highPriorityEffort": "32 hours",
+    "mediumPriorityEffort": "40 hours", 
+    "lowPriorityEffort": "12 hours",
+    "criticalPath": [
+      "a11y-001",
+      "a11y-002", 
+      "ux-001",
+      "ux-002",
+      "a11y-003"
+    ],
+    "weeklyPlan": {
+      "week1": {
+        "focus": "Critical accessibility and UX foundations",
+        "issues": ["a11y-001", "a11y-002", "ux-001", "ux-002"],
+        "effort": "16 hours"
+      },
+      "week2": {
+        "focus": "Focus management and error handling",
+        "issues": ["a11y-003", "a11y-004", "ux-003", "a11y-005"],
+        "effort": "17 hours"
+      },
+      "week3": {
+        "focus": "Form accessibility and state management",
+        "issues": ["a11y-006", "a11y-007", "ux-004", "ux-005"],
+        "effort": "15 hours"
+      },
+      "week4": {
+        "focus": "Polish and testing",
+        "issues": ["a11y-008", "ux-006", "a11y-009", "ux-007"],
+        "effort": "12 hours"
+      }
+    }
+  },
+  "testingRecommendations": {
+    "automated": [
+      "@axe-core/react integration",
+      "jest-axe for component testing",
+      "Lighthouse CI for accessibility scoring"
+    ],
+    "manual": [
+      "Screen reader testing (NVDA, JAWS, VoiceOver)",
+      "Keyboard-only navigation testing",
+      "High contrast mode verification",
+      "Color blindness simulation"
+    ],
+    "userTesting": [
+      "Include users with disabilities",
+      "Test with actual assistive technologies",
+      "Validate real-world usage patterns"
+    ]
+  }
+}

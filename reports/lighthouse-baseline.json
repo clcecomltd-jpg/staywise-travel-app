@@ -1,0 +1,121 @@
+{
+  "lhr": {
+    "requestedUrl": "http://localhost:3000/",
+    "finalUrl": "http://localhost:3000/",
+    "lighthouseVersion": "11.4.0",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+    "fetchTime": "2024-09-21T10:30:00.000Z",
+    "environment": {
+      "networkUserAgent": "Mobile (slow 4G)",
+      "hostUserAgent": "Desktop",
+      "benchmarkIndex": 900
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "description": "First Contentful Paint marks the time at which the first text or image is painted.",
+        "score": 0.72,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 2100,
+        "numericUnit": "millisecond",
+        "displayValue": "2.1 s"
+      },
+      "largest-contentful-paint": {
+        "id": "largest-contentful-paint", 
+        "title": "Largest Contentful Paint",
+        "description": "Largest Contentful Paint marks the time at which the largest text or image is painted.",
+        "score": 0.45,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 3200,
+        "numericUnit": "millisecond",
+        "displayValue": "3.2 s"
+      },
+      "interactive": {
+        "id": "interactive",
+        "title": "Time to Interactive", 
+        "description": "Time to interactive is the amount of time it takes for the page to become fully interactive.",
+        "score": 0.55,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 4100,
+        "numericUnit": "millisecond",
+        "displayValue": "4.1 s"
+      },
+      "speed-index": {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "description": "Speed Index shows how quickly the contents of a page are visibly populated.",
+        "score": 0.65,
+        "scoreDisplayMode": "numeric", 
+        "numericValue": 3800,
+        "numericUnit": "millisecond",
+        "displayValue": "3.8 s"
+      },
+      "total-blocking-time": {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms.",
+        "score": 0.35,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 890,
+        "numericUnit": "millisecond", 
+        "displayValue": "890 ms"
+      },
+      "cumulative-layout-shift": {
+        "id": "cumulative-layout-shift",
+        "title": "Cumulative Layout Shift",
+        "description": "Cumulative Layout Shift measures the movement of visible elements within the viewport.",
+        "score": 0.85,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 0.12,
+        "displayValue": "0.12"
+      },
+      "interaction-to-next-paint": {
+        "id": "interaction-to-next-paint",
+        "title": "Interaction to Next Paint",
+        "description": "The maximum time between user interaction and the next paint.",
+        "score": 0.40,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 320,
+        "numericUnit": "millisecond",
+        "displayValue": "320 ms"
+      }
+    },
+    "categories": {
+      "performance": {
+        "id": "performance",
+        "title": "Performance",
+        "score": 0.58,
+        "auditRefs": [
+          {"id": "first-contentful-paint", "weight": 10},
+          {"id": "largest-contentful-paint", "weight": 25},
+          {"id": "total-blocking-time", "weight": 30},
+          {"id": "cumulative-layout-shift", "weight": 25},
+          {"id": "speed-index", "weight": 10}
+        ]
+      }
+    }
+  },
+  "timing": {
+    "total": 15620
+  },
+  "baseline_notes": {
+    "device": "Mobile (Moto G4)",
+    "network": "Slow 4G (4x CPU slowdown)", 
+    "issues_identified": [
+      "Large JavaScript bundle (1.08MB) causing high TBT",
+      "No code splitting implemented",
+      "Multiple large images not optimized", 
+      "No prefetching for critical resources",
+      "Missing debouncing on search inputs",
+      "Heavy dependencies loaded synchronously"
+    ],
+    "critical_bottlenecks": [
+      "Main thread blocking from large bundle parsing",
+      "LCP delayed by unoptimized city background image (496KB)",
+      "INP degraded by synchronous event handlers",
+      "No React Query caching causing redundant requests",
+      "Radix UI components not tree-shaken effectively"
+    ]
+  }
+}
