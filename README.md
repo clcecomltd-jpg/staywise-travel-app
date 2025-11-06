@@ -1,265 +1,249 @@
-# StayWise - AI-Powered Travel Companion
+# ADHD Planner MVP
 
-A modern travel application that provides personalized recommendations and seamless property management for both guests and hosts.
+A production-ready MVP of an ADHD-friendly web app that helps users plan, focus, and track progress with minimal friction.
 
-## 🚀 Recent Major Updates
+## 🎯 Features
 
-### Enhanced Onboarding Experience (2024)
+- **Quick Add with NLP**: Add tasks quickly using natural language parsing
+  - `"Pay bill tomorrow 4pm #finance !high"` → Parses dates, tags, and priorities
+  - Available anywhere with keyboard shortcut `q`
 
-We've completely reimagined the onboarding flow with a focus on accessibility, performance, and user experience:
+- **Today View**: Three-column kanban board (Now / Next / Later)
+  - Drag and drop tasks between columns
+  - Visual priority indicators
+  - One-click task completion with confetti celebration
 
-#### ✨ Key Improvements
+- **Focus Timer**: Customizable Pomodoro timer
+  - 25/5 minute defaults (customizable to 5, 15, 25 min)
+  - Task association for sessions
+  - Distraction tracking with one-click logging
+  - Session notes
 
-- **🔧 Accessibility First**: WCAG 2.1 AA compliant with screen reader support, keyboard navigation, and focus management
-- **⚡ Performance Optimized**: Lazy loading, image optimization, and reduced bundle size
-- **🎯 Personalized Content**: Mode-specific messaging and recommendations
-- **📊 Analytics Integration**: Comprehensive tracking for data-driven improvements
-- **🎨 Consistent Design**: Unified visual language across all screens
+- **Routines**: Daily/weekly checklists
+  - Pre-built routine templates
+  - One-click spawn tasks to Today
 
-#### 🛠️ Technical Enhancements
+- **Progress Tracking**: Lightweight analytics
+  - Today & weekly stats (focused minutes, completed tasks)
+  - Top distraction tracking
+  - Focus streaks
 
-- **New Accessibility Components**: `AccessibleButton`, `AccessibleOptionCard`, `AccessibleProgress`
-- **Enhanced Loading States**: `LoadingButton`, `OnboardingLoader`, with proper state management
-- **Performance Components**: `OptimizedImage` with fallbacks and lazy loading
-- **Analytics Utilities**: Comprehensive tracking for user experience optimization
-- **Constants & Configuration**: Centralized design tokens and configuration
+- **Offline Support**: Full PWA with offline capability
+  - Works offline for core flows
+  - Auto-sync when back online
+  - IndexedDB caching with Dexie
 
-## 🏗️ Architecture
+- **Accessibility**: ADHD-friendly UX
+  - Large tap targets (min 44x44px)
+  - Keyboard-first navigation (q, t, f, r, p shortcuts)
+  - High contrast (WCAG AA compliant)
+  - Reduced motion support
+  - Clear focus states
 
-### Component Structure
+## 🛠 Tech Stack
 
-```
-src/
-├── components/
-│   ├── ui/                          # Foundational UI components
-│   │   ├── accessibility-helpers.tsx # Accessibility-first components
-│   │   ├── loading-states.tsx       # Loading and state management
-│   │   ├── optimized-image.tsx      # Performance-optimized images
-│   │   └── ...
-│   ├── OnboardingFlow.tsx           # Main onboarding orchestrator
-│   ├── OnboardingCompletion.tsx     # Completion screen
-│   └── ...
-├── constants/
-│   └── onboarding.ts                # Configuration and content
-├── utils/
-│   └── onboarding-analytics.ts      # Analytics tracking
-└── styles/
-    └── globals.css                  # Enhanced accessibility styles
-```
+- **Frontend**: Next.js 15 (App Router), TypeScript, Tailwind CSS, Radix UI
+- **Backend**: Supabase (Postgres, Auth, RLS)
+- **State**: Zustand
+- **Offline**: Dexie (IndexedDB)
+- **PWA**: next-pwa
+- **Testing**: Vitest, Testing Library, Playwright
+- **Code Quality**: ESLint, Prettier, Husky
 
-## 🎯 Onboarding Flow Features
+## 📋 Prerequisites
 
-### For Guests
-- **Smart Check-In**: Complete arrival in under 2 minutes
-- **Hidden Local Gems**: Discover spots 90% of tourists miss
-- **Offline Navigation**: Never get lost, even without internet
-- **Instant Host Support**: Get help in under 5 minutes
-- **Personalized Recommendations**: AI-powered suggestions based on preferences
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+- A Supabase account (free tier works)
 
-### For Hosts
-- **Guest Satisfaction Analytics**: Track and improve guest experience
-- **Automated Guide Sharing**: Save 3+ hours per guest
-- **Centralized Property Hub**: Manage everything in one place
-- **Exceed Guest Expectations**: Boost ratings by 0.3+ stars
-- **Revenue Optimization**: Increase bookings by 15%
+## 🚀 Setup Instructions
 
-## 🛡️ Accessibility Features
+### 1. Clone and Install
 
-### WCAG 2.1 AA Compliance
-- **Screen Reader Support**: Comprehensive ARIA labels and descriptions
-- **Keyboard Navigation**: Full keyboard accessibility with visual focus indicators
-- **Color Contrast**: Meeting or exceeding 4.5:1 contrast ratios
-- **Motion Preferences**: Respects `prefers-reduced-motion` settings
-- **Touch Targets**: Minimum 44px touch targets for mobile accessibility
-
-### Semantic HTML
-- Proper heading hierarchy
-- Fieldsets and legends for form groups
-- Live regions for dynamic content
-- Skip links for keyboard users
-
-## ⚡ Performance Optimizations
-
-### Image Optimization
-- **Lazy Loading**: Images load only when needed
-- **Responsive Images**: Multiple sizes for different devices
-- **Fallback Systems**: Graceful degradation with color backgrounds
-- **Preloading**: Critical images preloaded for smooth experience
-
-### Bundle Optimization
-- **Code Splitting**: Components loaded only when needed
-- **Tree Shaking**: Unused code eliminated
-- **Centralized Constants**: Reduced duplication and bundle size
-
-## 📊 Analytics & Tracking
-
-### Comprehensive User Journey Tracking
-- **Step Progression**: Track completion rates and abandonment points
-- **Error Monitoring**: Identify and fix user experience issues
-- **Performance Metrics**: Monitor loading times and user interactions
-- **A/B Testing Ready**: Infrastructure for optimization experiments
-
-### Privacy-First Approach
-- Local storage for debugging
-- Opt-in analytics collection
-- No personal data tracking without consent
-
-## 🎨 Design System
-
-### Glass Morphism Components
-Modern glass effect UI with backdrop blur and subtle transparency:
-
-```css
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-```
-
-### Color System
-- **Primary**: #007AFF (iOS Blue)
-- **Secondary**: #5856D6 (Purple)
-- **Success**: #34D399 (Green)
-- **Warning**: #F59E0B (Amber)
-- **Error**: #EF4444 (Red)
-
-### Typography Scale
-- **Hero Title**: 32px
-- **Page Title**: 28px
-- **Card Title**: 20px
-- **Body Text**: 16px
-- **Small Text**: 14px
-- **Caption**: 12px
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+
-- npm or yarn
-- Modern browser with ES6+ support
-
-### Installation
-```bash
-# Clone the repository
-git clone <repository-url>
-
-# Install dependencies
+\`\`\`bash
+git clone <your-repo-url>
+cd adhd-planner-mvp
 npm install
+\`\`\`
 
-# Start development server
+### 2. Set Up Supabase
+
+1. Create a new project at [supabase.com](https://supabase.com)
+2. Go to SQL Editor and run the migration in `supabase/schema.sql`
+3. Get your project URL and anon key from Settings > API
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file:
+
+\`\`\`env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+\`\`\`
+
+### 4. Run Development Server
+
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
-### Development Commands
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run lint         # Run ESLint
-npm run type-check   # Run TypeScript checks
-npm run test         # Run tests
-```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### 5. (Optional) Seed Demo Data
+
+\`\`\`bash
+npm run seed
+\`\`\`
+
+## 📝 Database Setup
+
+The app uses the following Supabase tables:
+
+- `tasks` - User tasks with metadata
+- `subtasks` - Task sub-items
+- `focus_sessions` - Pomodoro session logs
+- `routines` - User routines/habits
+- `distractions` - Distraction logs
+
+All tables have Row Level Security (RLS) enabled. Run the SQL in `supabase/schema.sql` to create tables, indexes, and policies.
 
 ## 🧪 Testing
 
-### Accessibility Testing
-```bash
-# Install accessibility tools
-npm install -g @axe-core/cli
+\`\`\`bash
+# Unit and component tests
+npm test
 
-# Run accessibility tests
-axe http://localhost:3000 --tags wcag2a,wcag2aa
-```
+# E2E tests
+npm run test:e2e
 
-### Performance Testing
-```bash
-# Run Lighthouse CI
-npm run lighthouse
+# Type checking
+npm run type-check
 
-# Check bundle size
-npm run analyze
-```
+# Linting
+npm run lint
+\`\`\`
 
-## 📱 Browser Support
+## 🎨 Code Quality
 
-- **Chrome**: 88+
-- **Firefox**: 85+
-- **Safari**: 14+
-- **Edge**: 88+
-- **Mobile Safari**: 14+
-- **Mobile Chrome**: 88+
+\`\`\`bash
+# Format code
+npm run format
 
-## 🔧 Configuration
+# Check formatting
+npm run format:check
+\`\`\`
 
-### Environment Variables
-```env
-NODE_ENV=development
-NEXT_PUBLIC_ANALYTICS_ID=your-analytics-id
-NEXT_PUBLIC_API_URL=your-api-url
-```
+Husky pre-commit hooks automatically run linting and formatting on staged files.
 
-### Customization
-Key configuration files:
-- `src/constants/onboarding.ts` - Onboarding content and settings
-- `src/styles/globals.css` - Global styles and design tokens
-- `tailwind.config.js` - Tailwind CSS configuration
+## 📱 PWA Installation
 
-## 📈 Monitoring & Analytics
+The app is installable as a Progressive Web App:
 
-### Performance Monitoring
-- Core Web Vitals tracking
-- Bundle size monitoring
-- Error rate tracking
-- User experience metrics
+1. Visit the app in Chrome/Edge
+2. Click the install icon in the address bar
+3. Or use "Add to Home Screen" on mobile
 
-### User Analytics
-- Onboarding completion rates
-- Feature usage patterns
-- User journey analysis
-- A/B testing results
+## ⌨️ Keyboard Shortcuts
 
-## 🤝 Contributing
+- `q` - Quick Add (open from anywhere)
+- `t` - Navigate to Today
+- `f` - Navigate to Focus Timer
+- `r` - Navigate to Routines
+- `p` - Navigate to Progress
+- `Esc` - Close dialogs/modals
 
-### Development Guidelines
-1. **Accessibility First**: All components must meet WCAG 2.1 AA standards
-2. **Performance**: Consider loading times and bundle size
-3. **Mobile First**: Design for mobile devices first
-4. **Type Safety**: Use TypeScript for all new code
-5. **Testing**: Write tests for all new features
+## 📁 Project Structure
 
-### Code Standards
-- ESLint configuration for code quality
-- Prettier for code formatting
-- Conventional commits for git messages
-- Component documentation required
+\`\`\`
+adhd-planner-mvp/
+├── app/                  # Next.js app router pages
+│   ├── auth/            # Authentication page
+│   ├── today/           # Today view (kanban)
+│   ├── focus/           # Focus timer
+│   ├── routines/        # Routines manager
+│   ├── progress/        # Progress stats
+│   └── layout.tsx       # Root layout
+├── components/
+│   ├── ui/              # Reusable UI components
+│   ├── features/        # Feature components
+│   └── layout/          # Layout components
+├── lib/
+│   ├── supabase/        # Supabase client config
+│   ├── offline/         # Offline support (Dexie)
+│   ├── nlp/             # NLP parser for Quick Add
+│   ├── store/           # Zustand stores
+│   ├── types.ts         # TypeScript types
+│   └── utils.ts         # Utility functions
+├── supabase/
+│   └── schema.sql       # Database schema and RLS
+└── public/              # Static assets
+\`\`\`
 
-## 📚 Documentation
+## 🚢 Deployment
 
-- [Component Catalog](./src/COMPONENT_CATALOG.md) - Complete component reference
-- [Design System](./src/docs/DESIGN_SYSTEM.md) - Design guidelines and tokens
-- [Navigation Flows](./src/docs/NAVIGATION_FLOWS.md) - User journey documentation
-- [API Documentation](./src/docs/API_MAPPING.md) - Backend integration guide
+### Vercel (Recommended)
 
-## 🆘 Support
+1. Push your code to GitHub
+2. Import project to Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy!
 
-### Common Issues
-- **Images not loading**: Check image paths and ensure fallback URLs are set
-- **Accessibility warnings**: Ensure all interactive elements have proper ARIA labels
-- **Performance issues**: Use React DevTools to identify re-rendering issues
+\`\`\`bash
+# Or use Vercel CLI
+npm i -g vercel
+vercel
+\`\`\`
 
-### Getting Help
-- Check the [Component Catalog](./src/COMPONENT_CATALOG.md) for usage examples
-- Review the [Implementation Plan](./ONBOARDING_IMPROVEMENTS_PLAN.md) for recent changes
-- Create an issue with detailed reproduction steps
+### Other Platforms
+
+The app works on any platform that supports Next.js 15:
+- Netlify
+- Railway
+- AWS Amplify
+- Self-hosted (Node.js)
+
+## 🔐 Security
+
+- All API routes protected by Supabase Auth
+- Row Level Security (RLS) on all database tables
+- Environment variables for sensitive data
+- No third-party analytics (privacy-first)
+
+## 🎯 Accessibility
+
+- WCAG AA compliant color contrast
+- Full keyboard navigation
+- Screen reader friendly (ARIA labels)
+- Large touch targets (44x44px minimum)
+- Reduced motion support
+- Focus indicators on all interactive elements
+
+## 🔮 Future Improvements
+
+- Calendar integration (iCal export)
+- Priority scoring (Impact × Urgency × Interest)
+- Streaks and gamification
+- Custom themes (3+ color palettes)
+- Collaborative tasks
+- Mobile native apps (React Native)
+- Voice input for Quick Add
+- Smart task scheduling
+- Weekly review flow
+- Export data (CSV, JSON)
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT
 
-## 🙏 Acknowledgments
+## 🤝 Contributing
 
-- Design inspiration from Apple's Human Interface Guidelines
-- Accessibility guidelines from WCAG 2.1
-- Performance best practices from web.dev
-- Component patterns from modern React applications
+Contributions welcome! Please open an issue or PR.
+
+## 📧 Support
+
+For issues or questions, please open a GitHub issue.
+
+---
+
+**Built with ❤️ for the ADHD community**
