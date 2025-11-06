@@ -11,7 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { formatTime } from '@/lib/utils'
 import type { Task, TaskStatus } from '@/lib/types'
 import { CheckCircle2, Circle, Trash2 } from 'lucide-react'
-import confetti from 'canvas-confetti'
+import { celebrate } from '@/lib/confetti'
 import { toast } from 'sonner'
 
 export default function TodayPage() {
@@ -46,11 +46,7 @@ export default function TodayPage() {
     await updateTask(task.id, { status: 'done' })
 
     // Celebrate with confetti!
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-    })
+    celebrate()
 
     toast.success('Task completed!', {
       description: `"${task.title}" is done. Great work!`,
@@ -63,32 +59,32 @@ export default function TodayPage() {
   }
 
   const TaskCard = ({ task }: { task: Task }) => (
-    <div className="group relative rounded-lg border bg-card p-4 hover:shadow-md transition-shadow">
+    <div className="group relative rounded-lg border bg-card p-4 transition-shadow hover:shadow-md">
       <div className="flex items-start gap-3">
         <button
           onClick={() => handleComplete(task)}
-          className="mt-0.5 focus-ring rounded"
+          className="focus-ring mt-0.5 rounded"
           aria-label="Complete task"
         >
-          <Circle className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
+          <Circle className="h-5 w-5 text-muted-foreground transition-colors hover:text-primary" />
         </button>
 
-        <div className="flex-1 min-w-0">
-          <h3 className="font-medium leading-none mb-2">{task.title}</h3>
+        <div className="min-w-0 flex-1">
+          <h3 className="mb-2 font-medium leading-none">{task.title}</h3>
 
           {task.notes && (
-            <p className="text-sm text-muted-foreground mb-2">{task.notes}</p>
+            <p className="mb-2 text-sm text-muted-foreground">{task.notes}</p>
           )}
 
-          <div className="flex flex-wrap gap-2 items-center">
+          <div className="flex flex-wrap items-center gap-2">
             {task.priority && (
               <Badge
                 variant={
                   task.priority === 'high'
                     ? 'destructive'
                     : task.priority === 'medium'
-                    ? 'default'
-                    : 'secondary'
+                      ? 'default'
+                      : 'secondary'
                 }
               >
                 {task.priority}
@@ -113,7 +109,7 @@ export default function TodayPage() {
           variant="ghost"
           size="icon"
           onClick={() => handleDelete(task.id)}
-          className="opacity-0 group-hover:opacity-100 transition-opacity"
+          className="opacity-0 transition-opacity group-hover:opacity-100"
         >
           <Trash2 className="h-4 w-4" />
         </Button>
@@ -154,7 +150,7 @@ export default function TodayPage() {
   if (loading) {
     return (
       <AppLayout>
-        <div className="flex items-center justify-center h-full">
+        <div className="flex h-full items-center justify-center">
           <div className="text-muted-foreground">Loading...</div>
         </div>
       </AppLayout>
@@ -163,7 +159,7 @@ export default function TodayPage() {
 
   return (
     <AppLayout>
-      <div className="container max-w-7xl mx-auto p-4 md:p-6 space-y-6">
+      <div className="container mx-auto max-w-7xl space-y-6 p-4 md:p-6">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Today</h1>
@@ -188,7 +184,7 @@ export default function TodayPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               {tasksByStatus.now.length === 0 ? (
-                <p className="text-sm text-muted-foreground text-center py-8">
+                <p className="py-8 text-center text-sm text-muted-foreground">
                   What's your main focus?
                 </p>
               ) : (
@@ -209,7 +205,7 @@ export default function TodayPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               {tasksByStatus.next.length === 0 ? (
-                <p className="text-sm text-muted-foreground text-center py-8">
+                <p className="py-8 text-center text-sm text-muted-foreground">
                   What's coming up next?
                 </p>
               ) : (
@@ -230,7 +226,7 @@ export default function TodayPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               {tasksByStatus.later.length === 0 ? (
-                <p className="text-sm text-muted-foreground text-center py-8">
+                <p className="py-8 text-center text-sm text-muted-foreground">
                   Add tasks for later
                 </p>
               ) : (

@@ -1,0 +1,13 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="32" fill="#3B82F6"/>
+
+  <!-- Checkmark -->
+  <path d="M140 60L80 120L52 92" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Clock/Timer Circle -->
+  <circle cx="140" cy="140" r="28" stroke="white" stroke-width="8" fill="none"/>
+  <path d="M140 120V140L152 148" stroke="white" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Focus indicator -->
+  <circle cx="52" cy="140" r="12" fill="white"/>
+</svg>
